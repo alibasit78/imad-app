@@ -18,8 +18,6 @@ button.onclick=function(){
 				
 			}
 			
-
-  }
 		
 		}
 	}; 
