@@ -17,9 +17,7 @@ button.onclick=function(){
 				span.innerHTML=counter.toString(); 
 				
 			}
-			else { alert('There was a problem with the request.'); }
-
-            }
+		
 		}
 	}; 
 	//Make the request
