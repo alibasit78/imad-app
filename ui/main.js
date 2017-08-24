@@ -17,7 +17,7 @@ button.onclick=function(){
 		}
 	}; 
 	//Make the request
-	request.open('GET','http://http://alibasit78.imad.hasura-app.io/counter',true);
+	request.open('GET','http://alibasit78.imad.hasura-app.io/counter',true);
 	request.send(null);
 
 };
