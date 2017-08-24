@@ -17,6 +17,9 @@ button.onclick=function(){
 				span.innerHTML=counter.toString(); 
 				
 			}
+			else { console.log('not working') }
+
+  }
 		
 		}
 	}; 
