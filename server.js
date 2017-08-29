@@ -1,7 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var pool = require('pg').Pool;
+/*var pool = require('pg').Pool;
 
 var config={
 	user:'alibasit78',
@@ -10,7 +10,7 @@ var config={
 	port:'5432',
 	password:process.env.DB_PASSWORD
 
-}
+}*/
 
 var app = express();
 app.use(morgan('combined'));
@@ -102,7 +102,7 @@ counter=counter+1;
 res.send(counter.toString());
 });
 
-var pool=new Pool(config);
+/*var pool=new Pool(config);
 app.get('/test-db',function(req,res){
 	//make a select request
 	//return a response with the results
@@ -113,7 +113,7 @@ app.get('/test-db',function(req,res){
 		res.send(JSON.stringify(result));
 	}	
 	});
-});
+});*/
 app.get('/submit-name',function(req,res){//submit-name?name=xxxx
 	//Get the name from the request
 	var name=req.query.name;
