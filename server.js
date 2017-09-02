@@ -105,7 +105,7 @@ res.send(counter.toString());
 
 function hash(input,salt){
 	//how do we create a hash
-	var hashed=crypto.pbkdf2Sync(input,salt,1000,512,sha512);
+	var hashed=crypto.pbkdf2Sync(input,salt,1000,512,'sha512');
 	return hashed.toString('hex');
 }
 
