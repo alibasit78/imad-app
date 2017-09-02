@@ -113,6 +113,7 @@ function hash(input,salt){
 app.post('/create-user',function(req,res){
 	//username password
 	//json
+	//{"username":"alibasit","password":"password"}
 	var username=req.body.username;
 	var password=req.body.password;
 	var salt=crypto.randomBytes(128).toString('hex');
