@@ -153,6 +153,7 @@ app.post('/login',function(req,res){
 				if(hashedPassword===dbString)
 				{
 					res.send('credentials correct');
+					//set session
 				}
 				else
 				{
