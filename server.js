@@ -3,6 +3,7 @@ var morgan = require('morgan');
 var path = require('path');
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
+var bodyParser=require('body-parser');
 
 var config={
 	user:'alibasit78',
@@ -15,6 +16,7 @@ var config={
 
 var app = express();
 app.use(morgan('combined'));
+app.use(bodyParser.json());
 
 var articles={
 
@@ -114,7 +116,7 @@ app.post('/create-user',function(req,res){
 	//username password
 	//json
 	//{"username":"alibasit","password":"password"}
-	//var username=req.body.username;
+	var username=req.body.username;
 	var password=req.body.password;
 	var salt=crypto.randomBytes(128).toString('hex');
 	var dbString=hash(password,salt);
