@@ -103,11 +103,28 @@ counter=counter+1;
 res.send(counter.toString());
 });
 
+
 function hash(input,salt){
 	//how do we create a hash
 	var hashed=crypto.pbkdf2Sync(input,salt,1000,512,'sha512');
 	return ['pbkdf2','10000',salt,hashed.toString('hex')].join('$');
 }
+
+app.post('/create-user',function(req,res){
+	//username password
+	//json
+	var username=req.body.username;
+	var password=req.body.password;
+	var salt=crypto.randomBytes(128).toString('hex');
+	var dbString=hash(password,salt);
+	pool.query('INSERT INTO "users" (username,password) values ($1,$2)',[username,dbString],function(err,result){
+		if(err){
+		res.status(500).send(err.toString());
+	}else{
+		res.send('User successfully created: '+ username);
+	}	
+	});
+});
 
 app.get('/hash/:input',function(req,res){
 	var hashedString=hash(req.params.input,'this-is-same-random-string');
