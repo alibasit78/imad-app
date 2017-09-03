@@ -157,6 +157,7 @@ app.post('/login',function(req,res){
 				}
 				else
 				{
+				    console.log(result.rows[0].password);
 				res.status(401).send('username/password is invalid');
 				}
 			}
